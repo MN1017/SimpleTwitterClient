@@ -69,14 +69,46 @@
 		A89BA6272046E3DA009CA31E /* SimpleTwitterClient */ = {
 			isa = PBXGroup;
 			children = (
+				A89BA63D2046E7A3009CA31E /* Resources */,
+				A89BA63C2046E79B009CA31E /* Controller */,
+				A89BA63B2046E794009CA31E /* View */,
+				A89BA63A2046E785009CA31E /* Model */,
 				A89BA6282046E3DA009CA31E /* AppDelegate.swift */,
-				A89BA62A2046E3DA009CA31E /* ViewController.swift */,
 				A89BA62C2046E3DA009CA31E /* Main.storyboard */,
+			);
+			path = SimpleTwitterClient;
+			sourceTree = "<group>";
+		};
+		A89BA63A2046E785009CA31E /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		A89BA63B2046E794009CA31E /* View */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		A89BA63C2046E79B009CA31E /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				A89BA62A2046E3DA009CA31E /* ViewController.swift */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		A89BA63D2046E7A3009CA31E /* Resources */ = {
+			isa = PBXGroup;
+			children = (
 				A89BA62F2046E3DA009CA31E /* Assets.xcassets */,
 				A89BA6312046E3DA009CA31E /* LaunchScreen.storyboard */,
 				A89BA6342046E3DB009CA31E /* Info.plist */,
 			);
-			path = SimpleTwitterClient;
+			path = Resources;
 			sourceTree = "<group>";
 		};
 		F4DE25F9FE83F83E26765A11 /* Pods */ = {
