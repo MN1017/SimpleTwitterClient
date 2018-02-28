@@ -6,6 +6,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
+        <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -17,13 +18,39 @@
                     <view key="view" contentMode="scaleToFill" id="Ze5-6b-2t3">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="GAE-Sw-Rnj" userLabel="Logo View">
+                                <rect key="frame" x="128" y="236" width="64" height="57"/>
+                                <subviews>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Twitter" translatesAutoresizingMaskIntoConstraints="NO" id="Cek-0b-8CR" userLabel="Logo Image View">
+                                        <rect key="frame" x="0.0" y="0.0" width="64" height="57"/>
+                                    </imageView>
+                                </subviews>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstItem="Cek-0b-8CR" firstAttribute="centerY" secondItem="GAE-Sw-Rnj" secondAttribute="centerY" id="cxK-B7-q3S"/>
+                                    <constraint firstItem="Cek-0b-8CR" firstAttribute="width" secondItem="GAE-Sw-Rnj" secondAttribute="width" id="jwE-4O-1Yu"/>
+                                    <constraint firstItem="Cek-0b-8CR" firstAttribute="height" secondItem="GAE-Sw-Rnj" secondAttribute="height" id="nxr-5w-Rlm"/>
+                                    <constraint firstItem="Cek-0b-8CR" firstAttribute="centerX" secondItem="GAE-Sw-Rnj" secondAttribute="centerX" id="uLa-MH-Fea"/>
+                                </constraints>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" red="0.0" green="0.50196081400000003" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                        <constraints>
+                            <constraint firstItem="GAE-Sw-Rnj" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="Mnu-J7-8mT"/>
+                            <constraint firstItem="GAE-Sw-Rnj" firstAttribute="height" secondItem="Ze5-6b-2t3" secondAttribute="height" multiplier="0.1" id="Rc2-hh-4J1"/>
+                            <constraint firstItem="GAE-Sw-Rnj" firstAttribute="centerY" secondItem="6Tk-OE-BBY" secondAttribute="centerY" multiplier="0.9" id="dZ0-gn-72K"/>
+                            <constraint firstItem="GAE-Sw-Rnj" firstAttribute="width" secondItem="Ze5-6b-2t3" secondAttribute="width" multiplier="0.2" id="t5R-T3-n4G"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="iYj-Kq-Ea1" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="53" y="375"/>
+            <point key="canvasLocation" x="52.5" y="375"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="Twitter" width="275" height="220"/>
+    </resources>
 </document>
