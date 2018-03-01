@@ -19,7 +19,6 @@ class LoginViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
         // Do any additional setup after loading the view.
     }
 
@@ -45,14 +44,26 @@ extension LoginViewController {
     func twitterLogin(){
         Twitter.sharedInstance().logIn(completion: { (session, error) in
             if (session != nil) {
-                UserDefaults.standard.set(session?.userName, forKey: "userName")
-                print(session!.userName)
+                self.loginSuccess(session: session!)
             } else {
-                print(error!.localizedDescription)
+                self.loginFailed(error: error)
             }
         })
     }
+  
+    /// use this method to handle success login
+    ///
+    func loginSuccess(session: TWTRSession){
+        print("Login Success")
+        print(session.userName)
+    }
     
+    /// use this method to handle failed login
+    ///
+    func loginFailed(error: Error?){
+        print("Login Failed")
+        print(error?.localizedDescription ?? "unknown Error")
+    }
 }
 
 
