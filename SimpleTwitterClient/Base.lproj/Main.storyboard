@@ -1,29 +1,85 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13771" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
-    <device id="retina4_7" orientation="portrait">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13771" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="IgC-EO-M1W">
+    <device id="retina4_0" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
+        <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--View Controller-->
-        <scene sceneID="tne-QT-ifu">
+        <!--Login View Controller-->
+        <scene sceneID="mUL-fw-pxv">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
-                <viewController id="BYZ-38-t0r" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                <viewController id="IgC-EO-M1W" customClass="LoginViewController" customModule="SimpleTwitterClient" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="Tr1-rg-Ymx">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                        <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Ovr-Rb-bGT" userLabel="Logo View">
+                                <rect key="frame" x="128" y="236" width="64" height="57"/>
+                                <subviews>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Twitter" translatesAutoresizingMaskIntoConstraints="NO" id="qrP-nJ-zyc" userLabel="Logo Image View">
+                                        <rect key="frame" x="0.0" y="0.0" width="64" height="57"/>
+                                    </imageView>
+                                </subviews>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstItem="qrP-nJ-zyc" firstAttribute="centerX" secondItem="Ovr-Rb-bGT" secondAttribute="centerX" id="MJo-Wn-axu"/>
+                                    <constraint firstItem="qrP-nJ-zyc" firstAttribute="centerY" secondItem="Ovr-Rb-bGT" secondAttribute="centerY" id="bWo-vm-wst"/>
+                                    <constraint firstItem="qrP-nJ-zyc" firstAttribute="height" secondItem="Ovr-Rb-bGT" secondAttribute="height" id="ggL-Lx-sMb"/>
+                                    <constraint firstItem="qrP-nJ-zyc" firstAttribute="width" secondItem="Ovr-Rb-bGT" secondAttribute="width" id="m69-2p-EY8"/>
+                                </constraints>
+                            </view>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1E9-5n-7gZ" customClass="CustomUIButton" customModule="SimpleTwitterClient" customModuleProvider="target">
+                                <rect key="frame" x="112" y="476.5" width="96" height="40"/>
+                                <color key="backgroundColor" red="0.98031717539999996" green="0.98043435810000001" blue="0.98027724029999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <state key="normal" title="Login"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
+                                        <real key="value" value="0.0"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                        <real key="value" value="7"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <action selector="LoginAction:" destination="IgC-EO-M1W" eventType="touchUpInside" id="BTW-Qk-2Wh"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" red="0.0" green="0.50196081400000003" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                        <constraints>
+                            <constraint firstItem="Ovr-Rb-bGT" firstAttribute="centerX" secondItem="iMS-RQ-7RI" secondAttribute="centerX" id="45h-Gf-MbE"/>
+                            <constraint firstItem="iMS-RQ-7RI" firstAttribute="bottom" secondItem="1E9-5n-7gZ" secondAttribute="bottom" multiplier="1.1" id="6ko-A7-Bah"/>
+                            <constraint firstItem="1E9-5n-7gZ" firstAttribute="height" secondItem="Tr1-rg-Ymx" secondAttribute="height" multiplier="0.07" id="IIj-hd-5oY">
+                                <variation key="heightClass=compact-widthClass=compact" constant="12"/>
+                                <variation key="heightClass=compact-widthClass=regular" constant="10"/>
+                            </constraint>
+                            <constraint firstItem="Ovr-Rb-bGT" firstAttribute="height" secondItem="Tr1-rg-Ymx" secondAttribute="height" multiplier="0.1" id="KJh-c7-kBO">
+                                <variation key="heightClass=compact-widthClass=compact" constant="10"/>
+                            </constraint>
+                            <constraint firstItem="Ovr-Rb-bGT" firstAttribute="width" secondItem="Tr1-rg-Ymx" secondAttribute="width" multiplier="0.2" id="Qko-jP-Fdb"/>
+                            <constraint firstItem="1E9-5n-7gZ" firstAttribute="centerX" secondItem="iMS-RQ-7RI" secondAttribute="centerX" id="X7x-Wm-yqT"/>
+                            <constraint firstItem="1E9-5n-7gZ" firstAttribute="width" secondItem="Tr1-rg-Ymx" secondAttribute="width" multiplier="0.3" id="j8R-dn-2lq"/>
+                            <constraint firstItem="Ovr-Rb-bGT" firstAttribute="centerY" secondItem="iMS-RQ-7RI" secondAttribute="centerY" multiplier="0.9" id="qeo-NY-Vib"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="iMS-RQ-7RI"/>
                     </view>
+                    <connections>
+                        <outlet property="LogoView" destination="Ovr-Rb-bGT" id="mVz-kR-VdC"/>
+                        <outlet property="loginButtom" destination="1E9-5n-7gZ" id="t1M-RM-s72"/>
+                    </connections>
                 </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="CqU-qB-0bJ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="297" y="339"/>
+            <point key="canvasLocation" x="-255" y="196.47887323943661"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="Twitter" width="275" height="220"/>
+    </resources>
 </document>

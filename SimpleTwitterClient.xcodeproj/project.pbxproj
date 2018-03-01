@@ -12,6 +12,12 @@
 		A89BA62E2046E3DA009CA31E /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A89BA62C2046E3DA009CA31E /* Main.storyboard */; };
 		A89BA6302046E3DA009CA31E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A89BA62F2046E3DA009CA31E /* Assets.xcassets */; };
 		A89BA6332046E3DA009CA31E /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A89BA6312046E3DA009CA31E /* LaunchScreen.storyboard */; };
+		A89BA6412046F328009CA31E /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A89BA6402046F328009CA31E /* LoginViewController.swift */; };
+		A89BA6432046F3AE009CA31E /* CustomUIButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = A89BA6422046F3AE009CA31E /* CustomUIButton.swift */; };
+		A89BA6482046FA74009CA31E /* ApiNames.swift in Sources */ = {isa = PBXBuildFile; fileRef = A89BA6472046FA74009CA31E /* ApiNames.swift */; };
+		A89BA64A2046FAA3009CA31E /* NetworkingHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = A89BA6492046FAA3009CA31E /* NetworkingHelper.swift */; };
+		A89BA64D20470BA2009CA31E /* Common Methods.swift in Sources */ = {isa = PBXBuildFile; fileRef = A89BA64C20470BA2009CA31E /* Common Methods.swift */; };
+		A89BA64F20470E1B009CA31E /* Config.swift in Sources */ = {isa = PBXBuildFile; fileRef = A89BA64E20470E1B009CA31E /* Config.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -21,6 +27,12 @@
 		A89BA62F2046E3DA009CA31E /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		A89BA6322046E3DA009CA31E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		A89BA6342046E3DB009CA31E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		A89BA6402046F328009CA31E /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
+		A89BA6422046F3AE009CA31E /* CustomUIButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomUIButton.swift; sourceTree = "<group>"; };
+		A89BA6472046FA74009CA31E /* ApiNames.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiNames.swift; sourceTree = "<group>"; };
+		A89BA6492046FAA3009CA31E /* NetworkingHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkingHelper.swift; sourceTree = "<group>"; };
+		A89BA64C20470BA2009CA31E /* Common Methods.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Common Methods.swift"; sourceTree = "<group>"; };
+		A89BA64E20470E1B009CA31E /* Config.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Config.swift; sourceTree = "<group>"; };
 		ACFE7F8426360FD3773CBB8D /* Pods_SimpleTwitterClient.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SimpleTwitterClient.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		B3E4119BC13C51DAE5FE1DD8 /* Pods-SimpleTwitterClient.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SimpleTwitterClient.release.xcconfig"; path = "Pods/Target Support Files/Pods-SimpleTwitterClient/Pods-SimpleTwitterClient.release.xcconfig"; sourceTree = "<group>"; };
 		C0191B96574349DC331AB40B /* Pods-SimpleTwitterClient.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SimpleTwitterClient.debug.xcconfig"; path = "Pods/Target Support Files/Pods-SimpleTwitterClient/Pods-SimpleTwitterClient.debug.xcconfig"; sourceTree = "<group>"; };
@@ -67,6 +79,7 @@
 		A89BA6272046E3DA009CA31E /* SimpleTwitterClient */ = {
 			isa = PBXGroup;
 			children = (
+				A89BA6452046FA48009CA31E /* Helper */,
 				A89BA63D2046E7A3009CA31E /* Resources */,
 				A89BA63C2046E79B009CA31E /* Controller */,
 				A89BA63B2046E794009CA31E /* View */,
@@ -87,6 +100,7 @@
 		A89BA63B2046E794009CA31E /* View */ = {
 			isa = PBXGroup;
 			children = (
+				A89BA6422046F3AE009CA31E /* CustomUIButton.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -94,6 +108,7 @@
 		A89BA63C2046E79B009CA31E /* Controller */ = {
 			isa = PBXGroup;
 			children = (
+				A89BA6402046F328009CA31E /* LoginViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -106,6 +121,33 @@
 				A89BA6342046E3DB009CA31E /* Info.plist */,
 			);
 			path = Resources;
+			sourceTree = "<group>";
+		};
+		A89BA6452046FA48009CA31E /* Helper */ = {
+			isa = PBXGroup;
+			children = (
+				A89BA64B20470B83009CA31E /* Common */,
+				A89BA6462046FA53009CA31E /* Networking */,
+			);
+			path = Helper;
+			sourceTree = "<group>";
+		};
+		A89BA6462046FA53009CA31E /* Networking */ = {
+			isa = PBXGroup;
+			children = (
+				A89BA6472046FA74009CA31E /* ApiNames.swift */,
+				A89BA6492046FAA3009CA31E /* NetworkingHelper.swift */,
+				A89BA64E20470E1B009CA31E /* Config.swift */,
+			);
+			path = Networking;
+			sourceTree = "<group>";
+		};
+		A89BA64B20470B83009CA31E /* Common */ = {
+			isa = PBXGroup;
+			children = (
+				A89BA64C20470BA2009CA31E /* Common Methods.swift */,
+			);
+			path = Common;
 			sourceTree = "<group>";
 		};
 		F4DE25F9FE83F83E26765A11 /* Pods */ = {
@@ -240,7 +282,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A89BA64A2046FAA3009CA31E /* NetworkingHelper.swift in Sources */,
+				A89BA6412046F328009CA31E /* LoginViewController.swift in Sources */,
+				A89BA64D20470BA2009CA31E /* Common Methods.swift in Sources */,
+				A89BA64F20470E1B009CA31E /* Config.swift in Sources */,
 				A89BA6292046E3DA009CA31E /* AppDelegate.swift in Sources */,
+				A89BA6432046F3AE009CA31E /* CustomUIButton.swift in Sources */,
+				A89BA6482046FA74009CA31E /* ApiNames.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
