@@ -31,6 +31,15 @@ class FollowersListCollectionViewCell: UICollectionViewCell {
 ///
 extension FollowersListCollectionViewCell{
     
+    /// use this method to set cell ui values
+    ///
+    func set(user: User){
+        self.userNameLabel.text = user.name
+        self.userHandleLabel.text = user.userName
+        self.userBioLabel.text = user.bio
+        self.userImageView.kf.setImage(with: URL(string: user.profileImageURL))
+    }
+    
     /// use this method to update constraint to be fit of content size
     ///
     func updateConstraint(){

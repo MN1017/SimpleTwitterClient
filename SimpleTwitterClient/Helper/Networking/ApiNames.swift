@@ -11,4 +11,5 @@ import Foundation
 struct ApiNames {
     
     static let BaseURL = "https://api.twitter.com/1.1/"
+    static let getFollowers = BaseURL + "followers/list.json"
 }
