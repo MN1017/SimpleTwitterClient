@@ -56,6 +56,7 @@ extension LoginViewController {
     func loginSuccess(session: TWTRSession){
         print("Login Success")
         print(session.userName)
+        performSegue(withIdentifier: "FollowersSegue", sender: self)
     }
     
     /// use this method to handle failed login

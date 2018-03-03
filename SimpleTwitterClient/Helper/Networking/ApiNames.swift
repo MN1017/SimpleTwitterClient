@@ -7,3 +7,8 @@
 //
 
 import Foundation
+
+struct ApiNames {
+    
+    static let BaseURL = "https://api.twitter.com/1.1/"
+}

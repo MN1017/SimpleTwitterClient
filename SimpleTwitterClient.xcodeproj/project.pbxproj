@@ -8,6 +8,12 @@
 
 /* Begin PBXBuildFile section */
 		29343EDAE8C2EA3826D26AEE /* Pods_SimpleTwitterClient.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ACFE7F8426360FD3773CBB8D /* Pods_SimpleTwitterClient.framework */; };
+		A897450020484309009AA4C8 /* FollowersViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A89744FF20484309009AA4C8 /* FollowersViewController.swift */; };
+		A8974508204843E6009AA4C8 /* FollowersListCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = A8974506204843E6009AA4C8 /* FollowersListCell.xib */; };
+		A897450B20486BEA009AA4C8 /* CustomUIImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A897450A20486BEA009AA4C8 /* CustomUIImageView.swift */; };
+		A897451120487555009AA4C8 /* FollowersGridCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = A897450F20487555009AA4C8 /* FollowersGridCell.xib */; };
+		A8974513204878BE009AA4C8 /* FollowersListCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8974512204878BE009AA4C8 /* FollowersListCollectionViewCell.swift */; };
+		A8974515204878D0009AA4C8 /* FollowersGridCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8974514204878D0009AA4C8 /* FollowersGridCollectionViewCell.swift */; };
 		A89BA6292046E3DA009CA31E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A89BA6282046E3DA009CA31E /* AppDelegate.swift */; };
 		A89BA62E2046E3DA009CA31E /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A89BA62C2046E3DA009CA31E /* Main.storyboard */; };
 		A89BA6302046E3DA009CA31E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A89BA62F2046E3DA009CA31E /* Assets.xcassets */; };
@@ -21,6 +27,12 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		A89744FF20484309009AA4C8 /* FollowersViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FollowersViewController.swift; sourceTree = "<group>"; };
+		A8974506204843E6009AA4C8 /* FollowersListCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FollowersListCell.xib; sourceTree = "<group>"; };
+		A897450A20486BEA009AA4C8 /* CustomUIImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomUIImageView.swift; sourceTree = "<group>"; };
+		A897450F20487555009AA4C8 /* FollowersGridCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FollowersGridCell.xib; sourceTree = "<group>"; };
+		A8974512204878BE009AA4C8 /* FollowersListCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FollowersListCollectionViewCell.swift; sourceTree = "<group>"; };
+		A8974514204878D0009AA4C8 /* FollowersGridCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FollowersGridCollectionViewCell.swift; sourceTree = "<group>"; };
 		A89BA6252046E3DA009CA31E /* SimpleTwitterClient.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SimpleTwitterClient.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A89BA6282046E3DA009CA31E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		A89BA62D2046E3DA009CA31E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -56,6 +68,33 @@
 				ACFE7F8426360FD3773CBB8D /* Pods_SimpleTwitterClient.framework */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		A897450920486BB1009AA4C8 /* Followers */ = {
+			isa = PBXGroup;
+			children = (
+				A8974517204878EA009AA4C8 /* FollowersGridCell */,
+				A8974516204878D4009AA4C8 /* FollowersListCell */,
+			);
+			path = Followers;
+			sourceTree = "<group>";
+		};
+		A8974516204878D4009AA4C8 /* FollowersListCell */ = {
+			isa = PBXGroup;
+			children = (
+				A8974506204843E6009AA4C8 /* FollowersListCell.xib */,
+				A8974512204878BE009AA4C8 /* FollowersListCollectionViewCell.swift */,
+			);
+			path = FollowersListCell;
+			sourceTree = "<group>";
+		};
+		A8974517204878EA009AA4C8 /* FollowersGridCell */ = {
+			isa = PBXGroup;
+			children = (
+				A897450F20487555009AA4C8 /* FollowersGridCell.xib */,
+				A8974514204878D0009AA4C8 /* FollowersGridCollectionViewCell.swift */,
+			);
+			path = FollowersGridCell;
 			sourceTree = "<group>";
 		};
 		A89BA61C2046E3D9009CA31E = {
@@ -101,6 +140,8 @@
 			isa = PBXGroup;
 			children = (
 				A89BA6422046F3AE009CA31E /* CustomUIButton.swift */,
+				A897450A20486BEA009AA4C8 /* CustomUIImageView.swift */,
+				A897450920486BB1009AA4C8 /* Followers */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -109,6 +150,7 @@
 			isa = PBXGroup;
 			children = (
 				A89BA6402046F328009CA31E /* LoginViewController.swift */,
+				A89744FF20484309009AA4C8 /* FollowersViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -221,6 +263,8 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A897451120487555009AA4C8 /* FollowersGridCell.xib in Resources */,
+				A8974508204843E6009AA4C8 /* FollowersListCell.xib in Resources */,
 				A89BA6332046E3DA009CA31E /* LaunchScreen.storyboard in Resources */,
 				A89BA6302046E3DA009CA31E /* Assets.xcassets in Resources */,
 				A89BA62E2046E3DA009CA31E /* Main.storyboard in Resources */,
@@ -282,10 +326,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A8974513204878BE009AA4C8 /* FollowersListCollectionViewCell.swift in Sources */,
+				A897450B20486BEA009AA4C8 /* CustomUIImageView.swift in Sources */,
 				A89BA64A2046FAA3009CA31E /* NetworkingHelper.swift in Sources */,
 				A89BA6412046F328009CA31E /* LoginViewController.swift in Sources */,
 				A89BA64D20470BA2009CA31E /* Common Methods.swift in Sources */,
 				A89BA64F20470E1B009CA31E /* Config.swift in Sources */,
+				A8974515204878D0009AA4C8 /* FollowersGridCollectionViewCell.swift in Sources */,
+				A897450020484309009AA4C8 /* FollowersViewController.swift in Sources */,
 				A89BA6292046E3DA009CA31E /* AppDelegate.swift in Sources */,
 				A89BA6432046F3AE009CA31E /* CustomUIButton.swift in Sources */,
 				A89BA6482046FA74009CA31E /* ApiNames.swift in Sources */,

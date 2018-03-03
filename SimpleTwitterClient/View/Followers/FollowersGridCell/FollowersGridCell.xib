@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="13771" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="FollowersGridCell" id="gTV-IL-0wX" customClass="FollowersGridCollectionViewCell" customModule="SimpleTwitterClient" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="263" height="213"/>
+            <autoresizingMask key="autoresizingMask"/>
+            <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                <rect key="frame" x="0.0" y="0.0" width="263" height="213"/>
+                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                <subviews>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ieQ-Rp-vDf">
+                        <rect key="frame" x="0.0" y="0.0" width="263" height="213"/>
+                        <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="user" translatesAutoresizingMaskIntoConstraints="NO" id="FXb-Fl-0v6" customClass="CustomUIImageView" customModule="SimpleTwitterClient" customModuleProvider="target">
+                                <rect key="frame" x="92" y="10" width="79" height="79"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="79" id="AtT-Ia-EoV"/>
+                                    <constraint firstAttribute="width" constant="79" id="IhK-Ae-elL"/>
+                                </constraints>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                        <real key="value" value="38"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="boolean" keyPath="cornerRadiusEnable" value="NO"/>
+                                    <userDefinedRuntimeAttribute type="boolean" keyPath="cornerRadiusDependentOnScreen" value="NO"/>
+                                </userDefinedRuntimeAttributes>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4NJ-68-LhZ">
+                                <rect key="frame" x="0.0" y="128" width="263" height="15"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="15" id="Ews-gA-KcZ"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <color key="textColor" red="0.40000000600000002" green="0.40000000600000002" blue="0.40000000600000002" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Nrw-gg-IPH">
+                                <rect key="frame" x="20" y="153" width="223" height="45"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="B5K-qg-5j1">
+                                <rect key="frame" x="0.0" y="99" width="263" height="25"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="25" id="fIO-MF-VqL"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="4NJ-68-LhZ" firstAttribute="top" secondItem="B5K-qg-5j1" secondAttribute="bottom" constant="4" id="3Qb-T9-DhJ"/>
+                            <constraint firstItem="FXb-Fl-0v6" firstAttribute="top" secondItem="ieQ-Rp-vDf" secondAttribute="top" constant="10" id="3Rs-D0-eJO"/>
+                            <constraint firstItem="Nrw-gg-IPH" firstAttribute="leading" secondItem="ieQ-Rp-vDf" secondAttribute="leading" constant="20" id="4JR-Z1-6zS"/>
+                            <constraint firstItem="B5K-qg-5j1" firstAttribute="width" secondItem="ieQ-Rp-vDf" secondAttribute="width" id="NeG-GN-2qp"/>
+                            <constraint firstAttribute="trailing" secondItem="Nrw-gg-IPH" secondAttribute="trailing" constant="20" id="SaJ-O2-d4Q"/>
+                            <constraint firstAttribute="width" constant="263" id="dbc-wn-B2u"/>
+                            <constraint firstItem="B5K-qg-5j1" firstAttribute="centerX" secondItem="ieQ-Rp-vDf" secondAttribute="centerX" id="fmd-iK-yFI"/>
+                            <constraint firstItem="B5K-qg-5j1" firstAttribute="top" secondItem="FXb-Fl-0v6" secondAttribute="bottom" constant="10" id="g0D-iI-e5f"/>
+                            <constraint firstItem="4NJ-68-LhZ" firstAttribute="width" secondItem="B5K-qg-5j1" secondAttribute="width" id="hcz-J1-nUS"/>
+                            <constraint firstItem="Nrw-gg-IPH" firstAttribute="top" secondItem="4NJ-68-LhZ" secondAttribute="bottom" constant="10" id="jwN-qI-lOU"/>
+                            <constraint firstItem="4NJ-68-LhZ" firstAttribute="centerX" secondItem="B5K-qg-5j1" secondAttribute="centerX" id="qt6-PV-z7u"/>
+                            <constraint firstItem="FXb-Fl-0v6" firstAttribute="centerX" secondItem="ieQ-Rp-vDf" secondAttribute="centerX" id="sKJ-NK-s4f"/>
+                            <constraint firstAttribute="bottom" secondItem="Nrw-gg-IPH" secondAttribute="bottom" constant="15" id="wfq-ZB-AiG"/>
+                        </constraints>
+                    </view>
+                </subviews>
+            </view>
+            <constraints>
+                <constraint firstAttribute="bottom" secondItem="ieQ-Rp-vDf" secondAttribute="bottom" id="Pcg-7E-yPM"/>
+                <constraint firstItem="ieQ-Rp-vDf" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="Yb8-FC-rnH"/>
+                <constraint firstAttribute="trailing" secondItem="ieQ-Rp-vDf" secondAttribute="trailing" id="Zj8-Nw-h5N"/>
+                <constraint firstItem="ieQ-Rp-vDf" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" id="nUf-p0-UrX"/>
+            </constraints>
+            <viewLayoutGuide key="safeArea" id="ZTg-uK-7eu"/>
+            <size key="customSize" width="263" height="213"/>
+            <connections>
+                <outlet property="userBioLabel" destination="Nrw-gg-IPH" id="m3B-WY-ER2"/>
+                <outlet property="userHandleLabel" destination="4NJ-68-LhZ" id="s4j-6B-Sgu"/>
+                <outlet property="userImageView" destination="FXb-Fl-0v6" id="BtB-hh-aLl"/>
+                <outlet property="userNameLabel" destination="B5K-qg-5j1" id="fAk-B7-agV"/>
+                <outlet property="widthConstraint" destination="dbc-wn-B2u" id="P15-iR-qSg"/>
+            </connections>
+            <point key="canvasLocation" x="6.5" y="-15.5"/>
+        </collectionViewCell>
+    </objects>
+    <resources>
+        <image name="user" width="128" height="128"/>
+    </resources>
+</document>

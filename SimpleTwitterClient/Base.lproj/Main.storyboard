@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13771" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="IgC-EO-M1W">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13771" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="l0O-Nn-QdJ">
     <device id="retina4_0" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -72,11 +72,71 @@
                     <connections>
                         <outlet property="LogoView" destination="Ovr-Rb-bGT" id="mVz-kR-VdC"/>
                         <outlet property="loginButtom" destination="1E9-5n-7gZ" id="t1M-RM-s72"/>
+                        <segue destination="l0O-Nn-QdJ" kind="show" identifier="FollowersSegue" id="g7D-0E-hBg"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="CqU-qB-0bJ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-255" y="196.47887323943661"/>
+        </scene>
+        <!--Followers View Controller-->
+        <scene sceneID="PM5-Hn-c5m">
+            <objects>
+                <viewController id="l0O-Nn-QdJ" customClass="FollowersViewController" customModule="SimpleTwitterClient" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="Ki3-Ki-FuI">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="4Ue-hI-4sg" userLabel="HeaderView">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="57"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Followers" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="t1j-v6-79M">
+                                        <rect key="frame" x="80" y="24.5" width="160" height="23"/>
+                                        <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="17"/>
+                                        <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <color key="backgroundColor" red="0.0" green="0.50196081400000003" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstItem="t1j-v6-79M" firstAttribute="height" secondItem="4Ue-hI-4sg" secondAttribute="height" multiplier="0.4" id="93r-Tt-gZf"/>
+                                    <constraint firstAttribute="bottom" secondItem="t1j-v6-79M" secondAttribute="bottom" multiplier="1.2" id="Hi5-nF-Tcu"/>
+                                    <constraint firstItem="t1j-v6-79M" firstAttribute="width" secondItem="4Ue-hI-4sg" secondAttribute="width" multiplier="0.5" id="fN5-oD-ujn"/>
+                                    <constraint firstItem="t1j-v6-79M" firstAttribute="centerX" secondItem="4Ue-hI-4sg" secondAttribute="centerX" id="kI5-9S-snO"/>
+                                </constraints>
+                            </view>
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="8mf-ST-MCW" userLabel="Followers Collection View">
+                                <rect key="frame" x="0.0" y="57" width="320" height="511"/>
+                                <color key="backgroundColor" red="0.90196079019999997" green="0.90196079019999997" blue="0.90196079019999997" alpha="1" colorSpace="calibratedRGB"/>
+                                <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="wXm-FM-LOg">
+                                    <size key="itemSize" width="50" height="50"/>
+                                    <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                                    <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                                    <inset key="sectionInset" minX="0.0" minY="10" maxX="0.0" maxY="0.0"/>
+                                </collectionViewFlowLayout>
+                                <cells/>
+                            </collectionView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="X2M-Uj-btz" firstAttribute="trailing" secondItem="8mf-ST-MCW" secondAttribute="trailing" id="I4h-RN-bFI"/>
+                            <constraint firstItem="4Ue-hI-4sg" firstAttribute="leading" secondItem="X2M-Uj-btz" secondAttribute="leading" id="MNM-g2-iMo"/>
+                            <constraint firstItem="8mf-ST-MCW" firstAttribute="top" secondItem="4Ue-hI-4sg" secondAttribute="bottom" id="TIG-qB-Ucg"/>
+                            <constraint firstItem="X2M-Uj-btz" firstAttribute="bottom" secondItem="8mf-ST-MCW" secondAttribute="bottom" id="Vpe-Vd-e80"/>
+                            <constraint firstItem="8mf-ST-MCW" firstAttribute="leading" secondItem="X2M-Uj-btz" secondAttribute="leading" id="wAS-25-kSw"/>
+                            <constraint firstItem="4Ue-hI-4sg" firstAttribute="trailing" secondItem="X2M-Uj-btz" secondAttribute="trailing" id="wTb-ak-zqA"/>
+                            <constraint firstItem="4Ue-hI-4sg" firstAttribute="top" secondItem="Ki3-Ki-FuI" secondAttribute="top" id="xRL-UT-l4N"/>
+                            <constraint firstItem="4Ue-hI-4sg" firstAttribute="height" secondItem="Ki3-Ki-FuI" secondAttribute="height" multiplier="0.1" id="y2Q-DC-QAl"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="X2M-Uj-btz"/>
+                    </view>
+                    <connections>
+                        <outlet property="followersCollectionView" destination="8mf-ST-MCW" id="Me5-xY-6PZ"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="OKq-fZ-KQ9" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="549" y="196"/>
         </scene>
     </scenes>
     <resources>

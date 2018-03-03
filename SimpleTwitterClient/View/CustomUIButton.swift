@@ -31,6 +31,7 @@ class CustomUIButton: UIButton {
             self.layer.borderWidth = borderWidth
         }
     }
+    
     //
     //  Border Color
     //

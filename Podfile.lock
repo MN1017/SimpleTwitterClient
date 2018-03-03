@@ -1,0 +1,29 @@
+PODS:
+  - Kingfisher (4.2.0)
+  - NVActivityIndicatorView (4.0.0):
+    - NVActivityIndicatorView/Presenter (= 4.0.0)
+  - NVActivityIndicatorView/Presenter (4.0.0)
+  - SwiftyJSON (3.1.4)
+  - TwitterCore (3.0.2)
+  - TwitterKit (3.2.1):
+    - TwitterCore (>= 3.0.2)
+  - UIScrollView-InfiniteScroll (1.0.2)
+
+DEPENDENCIES:
+  - Kingfisher (~> 4.0)
+  - NVActivityIndicatorView
+  - SwiftyJSON
+  - TwitterKit
+  - UIScrollView-InfiniteScroll
+
+SPEC CHECKSUMS:
+  Kingfisher: 9ee7e788d8ba07c3f21ce0d43f33cec310a4f781
+  NVActivityIndicatorView: 54c9b93b6f25a4f467512680c0c90c09a1095cf2
+  SwiftyJSON: c2842d878f95482ffceec5709abc3d05680c0220
+  TwitterCore: e0420b01e02e7d20e94690e37f43e75de219ab8d
+  TwitterKit: 205ac89824bbfe9e85a16c420d30bb7bcbedac45
+  UIScrollView-InfiniteScroll: c132d6d5851daff229ab4a1060ccf70a05a051c9
+
+PODFILE CHECKSUM: 30947177354c9a8a707296d7c073237dd15e0733
+
+COCOAPODS: 1.2.1
