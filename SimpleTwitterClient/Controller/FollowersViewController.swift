@@ -121,6 +121,20 @@ extension FollowersViewController {
         followersCollectionView.reloadData()
     }
     
+    /// use this method to set cached Followers data
+    ///
+    func setCachedFollowersData(withData data:JSON) {
+        UserDefaults.standard.set(data.rawString()!, forKey: "CachedFollowers")
+    }
+    
+    /// use this method to get cached Followers data
+    ///
+    func getCachedFollowersData() -> JSON{
+        return JSON.init(parseJSON: UserDefaults.standard.value(forKey: "CachedFollowers")  as! String)
+    }
+    
+    /// use this method to update FollowersCollectionView data
+    ///
     func updateFollowersCollectionView(withData followersArray:[JSON]){
         
         /// remove old data if user perform refresh action and reset dataForRefresh values
@@ -164,18 +178,27 @@ extension FollowersViewController {
             }
         )
         
+        followersCollectionView.reloadData()
+    }
+    
+    /// use this method to finish loading animation
+    ///
+    func finishLoading(){
         refresher.endRefreshing()
         followersCollectionView.finishInfiniteScroll()
-        followersCollectionView.reloadData()
     }
     
     /// use this method to update followers data
     ///
     func updateFollowersData(withJson json: JSON){
-        
-        cursor = json["next_cursor_str"].stringValue
-        let followersArray = json["users"].arrayValue
-        updateFollowersCollectionView(withData: followersArray)
+        let next_cursor = json["next_cursor_str"].stringValue
+        if cursor != next_cursor || next_cursor == "0"{
+            cursor = next_cursor
+            let followersArray = json["users"].arrayValue
+            updateFollowersCollectionView(withData: followersArray)
+            setCachedFollowersData(withData: json)
+        }
+        finishLoading()
     }
 }
 
@@ -228,5 +251,7 @@ extension FollowersViewController: NetworkingHelperDeleget {
     
     func onHelper(getError error: String, fromApiName name: String, withIdentifier id: String) {
         print(error)
+        let json = getCachedFollowersData()
+        updateFollowersData(withJson: json)
     }
 }
