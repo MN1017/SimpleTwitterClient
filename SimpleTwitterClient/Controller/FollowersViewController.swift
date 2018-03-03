@@ -9,6 +9,7 @@
 import UIKit
 import TwitterKit
 import SwiftyJSON
+import UIScrollView_InfiniteScroll
 
 class FollowersViewController: UIViewController {
     
@@ -19,16 +20,22 @@ class FollowersViewController: UIViewController {
     let network = NetworkingHelper()
     let GET_DATA_ID = "Followers"
     
+    /// Contants
+    ///
+    let refresher = UIRefreshControl()
+    
     /// Variables
     ///
     var followers:[User]!
+    var cursor:String!
+    var dataForRefresh:Bool!
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
         
         setInitialValues()
-        getDataFromServer()
     }
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
@@ -46,21 +53,51 @@ extension FollowersViewController {
     ///
     func setInitialValues(){
         
+        /// set initial values
+        ///
+        cursor = "0"
         followers = [User]()
+        dataForRefresh = false
+        
+        /// set delegates and datasource
+        ///
         followersCollectionView.dataSource = self
         followersCollectionView.delegate = self
         network.deleget = self
+        
         setRegisterCollectionViewCells()
         setCollectionViewFlowLayout()
         
         /// add selector to handle device rotated action
         ///
         NotificationCenter.default.addObserver(self, selector: #selector(FollowersViewController.deviceRotated), name: NSNotification.Name.UIDeviceOrientationDidChange, object: nil)
+        
+        /// add refresher to followers collection view
+        ///
+        refresher.addTarget(self, action: #selector(refresh), for: .valueChanged)
+        followersCollectionView.addSubview(refresher)
+        
+        /// add infinite scroll to followers collection view
+        ///
+        followersCollectionView.addInfiniteScroll{ (collectionView) -> Void in
+            self.getDataFromServer()
+        }
+        
+        followersCollectionView.beginInfiniteScroll(true)
+    }
+    
+    /// use this method to refresh followers collection view
+    ///
+    @objc func refresh(){
+        dataForRefresh = true
+        getDataFromServer()
     }
     
     /// use this method to register customs CollectionView cells
     ///
     func setRegisterCollectionViewCells(){
+        /// register followers list cell to be used in portrait
+        ///
         let nib = UINib(nibName: "FollowersListCell", bundle:nil)
         self.followersCollectionView.register(nib, forCellWithReuseIdentifier: "FollowersListCell")
     }
@@ -79,15 +116,61 @@ extension FollowersViewController {
         followersCollectionView.reloadData()
     }
     
+    func updateFollowersCollectionView(withData followersArray:[JSON]){
+        
+        /// remove old data if user perform refresh action and reset dataForRefresh values
+        ///
+        if dataForRefresh {
+            
+            /// create indexPath to be used to delete old data from followersCollectionView
+            ///
+            let followersCount = followers.count
+            let (start, end) = (0, followersCount)
+            let indexPaths = (start..<end).map { return IndexPath(row: $0, section: 0) }
+            
+            followers.removeAll()
+            
+            /// delete old data from followersCollectionView
+            ///
+            followersCollectionView.performBatchUpdates({ () -> Void in
+                self.followersCollectionView.deleteItems(at: indexPaths)
+                }
+            )
+            
+            dataForRefresh = false
+        }
+        
+        /// create indexPath to be used to add new data to followersCollectionView
+        ///
+        let followersCount = followers.count
+        let (start, end) = (followersCount, followersArray.count + followersCount)
+        let indexPaths = (start..<end).map { return IndexPath(row: $0, section: 0) }
+        
+        /// add new data to followersArray
+        ///
+        for i in 0..<followersArray.count{
+            followers.append(User(fromJson: followersArray[i]))
+        }
+        
+        /// add new data to followersCollectionView
+        ///
+        followersCollectionView.performBatchUpdates({ () -> Void in
+            self.followersCollectionView.insertItems(at: indexPaths)
+            }
+        )
+        
+        refresher.endRefreshing()
+        followersCollectionView.finishInfiniteScroll()
+        followersCollectionView.reloadData()
+    }
+    
     /// use this method to update followers data
     ///
     func updateFollowersData(withJson json: JSON){
         
+        cursor = json["next_cursor_str"].stringValue
         let followersArray = json["users"].arrayValue
-        for i in 0..<followersArray.count{
-            followers.append(User(fromJson: followersArray[i]))
-        }
-        followersCollectionView.reloadData()
+        updateFollowersCollectionView(withData: followersArray)
     }
 }
 
@@ -110,10 +193,15 @@ extension FollowersViewController: UICollectionViewDataSource, UICollectionViewD
 
 
 /// MARK: - Networking
+///
 extension FollowersViewController: NetworkingHelperDeleget {
     
     func getDataFromServer() {
         var param:[String: String] = ["count": "10"]
+        if cursor != "0" && dataForRefresh == false{
+            param["cursor"] = cursor
+        }
+        print(param)
         network.connectTo(api: ApiNames.getFollowers ,withParameters: param , andIdentifier: GET_DATA_ID)
     }
     
