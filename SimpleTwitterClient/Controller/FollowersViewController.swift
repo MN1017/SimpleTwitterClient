@@ -98,8 +98,13 @@ extension FollowersViewController {
     func setRegisterCollectionViewCells(){
         /// register followers list cell to be used in portrait
         ///
-        let nib = UINib(nibName: "FollowersListCell", bundle:nil)
+        var nib = UINib(nibName: "FollowersListCell", bundle:nil)
         self.followersCollectionView.register(nib, forCellWithReuseIdentifier: "FollowersListCell")
+        
+        /// register followers grid cell to be used in landscape
+        ///
+        nib = UINib(nibName: "FollowersGridCell", bundle:nil)
+        self.followersCollectionView.register(nib, forCellWithReuseIdentifier: "FollowersGridCell")
     }
     
     /// use this method to set collection view flow layout to make cell height dependent on content height
@@ -185,9 +190,15 @@ extension FollowersViewController: UICollectionViewDataSource, UICollectionViewD
     }
     
     public func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell{
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "FollowersListCell", for: indexPath) as! FollowersListCollectionViewCell
-        cell.set(user: followers[indexPath.row])
-        return cell
+        if UIDevice.current.orientation.isLandscape == true {
+            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "FollowersGridCell", for: indexPath) as! FollowersGridCollectionViewCell
+            cell.set(user: followers[indexPath.row])
+            return cell
+        }else{
+            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "FollowersListCell", for: indexPath) as! FollowersListCollectionViewCell
+            cell.set(user: followers[indexPath.row])
+            return cell
+        }
     }
 }
 
