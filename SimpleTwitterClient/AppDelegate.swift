@@ -18,9 +18,28 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
         
-        // Initialize Twitter Kit
+        /// Localization
+        ///
+        L102Localizer.DoTheMagic()
+        L102Language.setAppleLAnguageTo(lang: L102Language.currentAppleLanguage())
+        
+        /// Initialize Twitter Kit
+        ///
         Twitter.sharedInstance().start(withConsumerKey: Config.consumerKey, consumerSecret: Config.consumerSecret)
         
+        /// change root view controller if user login before
+        ///
+        let mainStoryboard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
+        let followersViewController = mainStoryboard.instantiateViewController(withIdentifier: "FollowersViewController") as! FollowersViewController
+        let loginViewController = mainStoryboard.instantiateViewController(withIdentifier: "LoginViewController") as! LoginViewController
+        
+        if Twitter.sharedInstance().sessionStore.hasLoggedInUsers() {
+            self.window?.rootViewController = followersViewController
+        }else{
+            self.window?.rootViewController = loginViewController
+        }
+        
+        self.window?.makeKeyAndVisible()
         return true
     }
 

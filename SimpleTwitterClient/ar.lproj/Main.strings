@@ -1,0 +1,12 @@
+
+/* Class = "UIButton"; normalTitle = "Login"; ObjectID = "1E9-5n-7gZ"; */
+"1E9-5n-7gZ.normalTitle" = "دخول";
+
+/* Class = "UILabel"; text = "@username"; ObjectID = "gdq-jC-BuV"; */
+"gdq-jC-BuV.text" = "@username";
+
+/* Class = "UILabel"; text = "Name"; ObjectID = "se6-3U-3Bk"; */
+"se6-3U-3Bk.text" = "الاسم";
+
+/* Class = "UILabel"; text = "Followers"; ObjectID = "t1j-v6-79M"; */
+"t1j-v6-79M.text" = "متابعون";
