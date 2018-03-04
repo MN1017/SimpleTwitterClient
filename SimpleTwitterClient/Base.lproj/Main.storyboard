@@ -133,7 +133,7 @@
                     </view>
                     <connections>
                         <outlet property="followersCollectionView" destination="8mf-ST-MCW" id="Me5-xY-6PZ"/>
-                        <segue destination="Kpd-gf-rLO" kind="modal" identifier="ProfileSegue" id="1Cm-Gq-Oic"/>
+                        <segue destination="Kpd-gf-rLO" kind="show" identifier="ProfileSegue" id="1Cm-Gq-Oic"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="OKq-fZ-KQ9" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -148,7 +148,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" allowsSelection="NO" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="PcK-AB-csP" userLabel="Profile Table View">
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" allowsSelection="NO" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="PcK-AB-csP" userLabel="Profile Table View">
                                 <rect key="frame" x="0.0" y="20" width="320" height="548"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <color key="separatorColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
@@ -157,7 +157,7 @@
                                     <rect key="frame" x="0.0" y="0.0" width="320" height="213"/>
                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                     <subviews>
-                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Wp4-kb-Vpq" userLabel="background Image View">
+                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="background" translatesAutoresizingMaskIntoConstraints="NO" id="Wp4-kb-Vpq" userLabel="background Image View">
                                             <rect key="frame" x="0.0" y="0.0" width="320" height="106.5"/>
                                         </imageView>
                                         <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="user" translatesAutoresizingMaskIntoConstraints="NO" id="EbR-RK-1gU" userLabel="profile Image View" customClass="CustomUIImageView" customModule="SimpleTwitterClient" customModuleProvider="target">
@@ -207,7 +207,7 @@
                                         <rect key="frame" x="0.0" y="241" width="320" height="47"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="W6o-Wl-ka6" id="Aov-ZP-d9e">
-                                            <rect key="frame" x="0.0" y="0.0" width="320" height="46.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="320" height="47"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <color key="backgroundColor" red="0.92149782179999995" green="0.92160838840000003" blue="0.92146027090000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         </tableViewCellContentView>
@@ -261,6 +261,7 @@
     </scenes>
     <resources>
         <image name="Twitter" width="275" height="220"/>
+        <image name="background" width="1024" height="768"/>
         <image name="close" width="64" height="64"/>
         <image name="user" width="128" height="128"/>
     </resources>

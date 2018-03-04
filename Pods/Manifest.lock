@@ -3,6 +3,8 @@ PODS:
   - NVActivityIndicatorView (4.0.0):
     - NVActivityIndicatorView/Presenter (= 4.0.0)
   - NVActivityIndicatorView/Presenter (4.0.0)
+  - RKParallaxEffect (2.0.0)
+  - SKPhotoBrowser (5.0.0)
   - SwiftyJSON (3.1.4)
   - TwitterCore (3.0.2)
   - TwitterKit (3.2.1):
@@ -12,6 +14,8 @@ PODS:
 DEPENDENCIES:
   - Kingfisher (~> 4.0)
   - NVActivityIndicatorView
+  - RKParallaxEffect
+  - SKPhotoBrowser
   - SwiftyJSON
   - TwitterKit
   - UIScrollView-InfiniteScroll
@@ -19,11 +23,13 @@ DEPENDENCIES:
 SPEC CHECKSUMS:
   Kingfisher: 9ee7e788d8ba07c3f21ce0d43f33cec310a4f781
   NVActivityIndicatorView: 54c9b93b6f25a4f467512680c0c90c09a1095cf2
+  RKParallaxEffect: b49be3d5c88757f50004befb6be47d66959607d2
+  SKPhotoBrowser: fe936f878955a568c726bf05d14e1d2717d91ce0
   SwiftyJSON: c2842d878f95482ffceec5709abc3d05680c0220
   TwitterCore: e0420b01e02e7d20e94690e37f43e75de219ab8d
   TwitterKit: 205ac89824bbfe9e85a16c420d30bb7bcbedac45
   UIScrollView-InfiniteScroll: c132d6d5851daff229ab4a1060ccf70a05a051c9
 
-PODFILE CHECKSUM: 30947177354c9a8a707296d7c073237dd15e0733
+PODFILE CHECKSUM: abe776588f1e4bb3582e5534788b15e7dc23f069
 
 COCOAPODS: 1.2.1

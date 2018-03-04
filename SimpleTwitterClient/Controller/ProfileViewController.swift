@@ -9,6 +9,7 @@
 import UIKit
 import SwiftyJSON
 import TwitterKit
+import RKParallaxEffect
 
 class ProfileViewController: UIViewController {
 
@@ -32,6 +33,7 @@ class ProfileViewController: UIViewController {
     /// Variables
     ///
     var tweets:[Any]!
+    var parallaxEffect: RKParallaxEffect!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -44,6 +46,12 @@ class ProfileViewController: UIViewController {
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        
+        customizeParallaxEffect()
     }
     
     /// IBAction
@@ -74,19 +82,33 @@ extension ProfileViewController: TWTRTweetViewDelegate {
         
         profileTableView.backgroundColor = UIColor.lightGray
         
-        /// set automatic Height for tableView
+        /// set automatic height for profileTableView cell
         ///
         profileTableView.estimatedRowHeight = 150
         profileTableView.rowHeight = UITableViewAutomaticDimension
         
+        /// add parallax effect to profileTableView header
+        ///
+        parallaxEffect = RKParallaxEffect(tableView: profileTableView)
+        
         setRegisterTableViewCells()
     }
     
+    /// use this method to customize parallax effect
+    ///
+    func customizeParallaxEffect() {
+        parallaxEffect.isParallaxEffectEnabled = true
+        parallaxEffect.isFullScreenTapGestureRecognizerEnabled = true
+        parallaxEffect.isFullScreenPanGestureRecognizerEnabled = false
+    }
+    
+    /// use this method to set user data
+    ///
     func setUserInfoData(){
         userNameLabel.text = user.name
         userHandleLabel.text = user.userName
-        profileImageView.kf.setImage(with: URL(string: user.profileImageURL))
-        backgroundImageView.kf.setImage(with: URL(string: user.backgroundImageURL))
+        profileImageView.kf.setImage(with: URL(string: user.profileImageURL),placeholder: #imageLiteral(resourceName: "user"))
+        backgroundImageView.kf.setImage(with: URL(string: user.backgroundImageURL),placeholder: #imageLiteral(resourceName: "background"))
     }
     
     /// use this method to register twitter tweet cells

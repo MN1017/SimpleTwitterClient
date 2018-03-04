@@ -192,12 +192,15 @@ extension FollowersViewController {
     ///
     func updateFollowersData(withJson json: JSON){
         let next_cursor = json["next_cursor_str"].stringValue
-        if cursor != next_cursor || next_cursor == "0"{
+        print(cursor)
+        print(next_cursor)
+        if cursor != next_cursor || next_cursor != "0"{
             cursor = next_cursor
             let followersArray = json["users"].arrayValue
             updateFollowersCollectionView(withData: followersArray)
             setCachedFollowersData(withData: json)
         }
+        dataForRefresh = false
         finishLoading()
     }
 }

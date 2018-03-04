@@ -37,7 +37,7 @@ extension FollowersGridCollectionViewCell{
         self.userNameLabel.text = user.name
         self.userHandleLabel.text = user.userName
         self.userBioLabel.text = user.bio
-        self.userImageView.kf.setImage(with: URL(string: user.profileImageURL))
+        self.userImageView.kf.setImage(with: URL(string: user.profileImageURL),placeholder: #imageLiteral(resourceName: "user"))
     }
     
     /// use this method to update constraint to be fit of content size

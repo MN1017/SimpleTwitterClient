@@ -12,5 +12,6 @@ target 'SimpleTwitterClient' do
   pod 'Kingfisher', '~> 4.0'
   pod 'NVActivityIndicatorView'
   pod 'UIScrollView-InfiniteScroll'
-
+  pod 'SKPhotoBrowser'
+  pod 'RKParallaxEffect'
 end
