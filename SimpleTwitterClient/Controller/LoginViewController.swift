@@ -26,6 +26,13 @@ class LoginViewController: UIViewController {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        let loggedInUser = UserDefaults.standard.value(forKey: "LoggedInUsers") as? Bool ?? false
+        if loggedInUser {
+            self.performSegue(withIdentifier: "FollowersSegue", sender: self)
+        }
+    }
 
     ///
     /// Actions
@@ -56,7 +63,7 @@ extension LoginViewController {
     func loginSuccess(session: TWTRSession){
         print("Login Success")
         print(session.userName)
-        performSegue(withIdentifier: "FollowersSegue", sender: self)
+        UserDefaults.standard.set(true, forKey: "LoggedInUsers")
     }
     
     /// use this method to handle failed login

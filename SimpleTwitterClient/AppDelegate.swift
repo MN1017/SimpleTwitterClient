@@ -18,6 +18,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
         
+        /// change the colour of status bar from black to white
+        ///
+        UIApplication.shared.statusBarStyle = .lightContent
+        
         /// Localization
         ///
         L102Localizer.DoTheMagic()
@@ -33,7 +37,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         let followersViewController = mainStoryboard.instantiateViewController(withIdentifier: "FollowersViewController") as! FollowersViewController
         let loginViewController = mainStoryboard.instantiateViewController(withIdentifier: "LoginViewController") as! LoginViewController
         
-        if Twitter.sharedInstance().sessionStore.hasLoggedInUsers() {
+        let loggedInUser = UserDefaults.standard.value(forKey: "LoggedInUsers") as? Bool ?? false
+        
+        if loggedInUser {
             self.window?.rootViewController = followersViewController
         }else{
             self.window?.rootViewController = loginViewController

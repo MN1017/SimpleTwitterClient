@@ -10,6 +10,7 @@
 		29343EDAE8C2EA3826D26AEE /* Pods_SimpleTwitterClient.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ACFE7F8426360FD3773CBB8D /* Pods_SimpleTwitterClient.framework */; };
 		A8245A60204C97E0000FEF61 /* L012Localizer.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8245A5F204C97E0000FEF61 /* L012Localizer.swift */; };
 		A8245A62204C97FC000FEF61 /* L102Language.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8245A61204C97FC000FEF61 /* L102Language.swift */; };
+		A8245A66204CB18D000FEF61 /* SafariServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A8245A65204CB18D000FEF61 /* SafariServices.framework */; };
 		A87D57A5204B675100851EA7 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A87D57A4204B675100851EA7 /* ProfileViewController.swift */; };
 		A897450020484309009AA4C8 /* FollowersViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A89744FF20484309009AA4C8 /* FollowersViewController.swift */; };
 		A8974508204843E6009AA4C8 /* FollowersListCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = A8974506204843E6009AA4C8 /* FollowersListCell.xib */; };
@@ -35,6 +36,7 @@
 		A8245A61204C97FC000FEF61 /* L102Language.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = L102Language.swift; sourceTree = "<group>"; };
 		A8245A63204C9F7F000FEF61 /* ar */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ar; path = ar.lproj/LaunchScreen.strings; sourceTree = "<group>"; };
 		A8245A64204C9F80000FEF61 /* ar */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ar; path = ar.lproj/Main.strings; sourceTree = "<group>"; };
+		A8245A65204CB18D000FEF61 /* SafariServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SafariServices.framework; path = System/Library/Frameworks/SafariServices.framework; sourceTree = SDKROOT; };
 		A87D57A4204B675100851EA7 /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
 		A89744FF20484309009AA4C8 /* FollowersViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FollowersViewController.swift; sourceTree = "<group>"; };
 		A8974506204843E6009AA4C8 /* FollowersListCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FollowersListCell.xib; sourceTree = "<group>"; };
@@ -65,6 +67,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A8245A66204CB18D000FEF61 /* SafariServices.framework in Frameworks */,
 				29343EDAE8C2EA3826D26AEE /* Pods_SimpleTwitterClient.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -75,6 +78,7 @@
 		17F6D2BF48234C5F97C72707 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				A8245A65204CB18D000FEF61 /* SafariServices.framework */,
 				ACFE7F8426360FD3773CBB8D /* Pods_SimpleTwitterClient.framework */,
 			);
 			name = Frameworks;
