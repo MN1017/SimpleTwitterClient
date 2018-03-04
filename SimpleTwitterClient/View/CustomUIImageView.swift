@@ -19,10 +19,9 @@ class CustomUIImageView: UIImageView {
     @IBInspectable var cornerRadius: CGFloat = 0 {
         didSet {
             let bounds = UIScreen.main.bounds
-            let width = bounds.size.height
             let height = bounds.size.height
             if cornerRadiusDependentOnScreenEnable {
-            self.layer.cornerRadius = min( cornerRadius * ( height / 200), cornerRadius * ( width / 200) )
+            self.layer.cornerRadius = min( ( height / 200), cornerRadius ) * cornerRadius
             }else{
                 self.layer.cornerRadius = cornerRadius 
             }
