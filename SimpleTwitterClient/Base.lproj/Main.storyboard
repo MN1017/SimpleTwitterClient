@@ -157,8 +157,11 @@
                                     <rect key="frame" x="0.0" y="0.0" width="320" height="213"/>
                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                     <subviews>
-                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="background" translatesAutoresizingMaskIntoConstraints="NO" id="Wp4-kb-Vpq" userLabel="background Image View">
+                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="background" translatesAutoresizingMaskIntoConstraints="NO" id="Wp4-kb-Vpq" userLabel="background Image View" customClass="CustomUIImageView" customModule="SimpleTwitterClient" customModuleProvider="target">
                                             <rect key="frame" x="0.0" y="0.0" width="320" height="106.5"/>
+                                            <userDefinedRuntimeAttributes>
+                                                <userDefinedRuntimeAttribute type="string" keyPath="Identifier" value="BackgroundImage"/>
+                                            </userDefinedRuntimeAttributes>
                                         </imageView>
                                         <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="user" translatesAutoresizingMaskIntoConstraints="NO" id="EbR-RK-1gU" userLabel="profile Image View" customClass="CustomUIImageView" customModule="SimpleTwitterClient" customModuleProvider="target">
                                             <rect key="frame" x="117.5" y="64" width="85" height="85"/>
@@ -171,15 +174,22 @@
                                                 <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
                                                     <real key="value" value="42"/>
                                                 </userDefinedRuntimeAttribute>
+                                                <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
+                                                    <color key="value" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                </userDefinedRuntimeAttribute>
+                                                <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
+                                                    <real key="value" value="3"/>
+                                                </userDefinedRuntimeAttribute>
+                                                <userDefinedRuntimeAttribute type="string" keyPath="Identifier" value="ProfileImage"/>
                                             </userDefinedRuntimeAttributes>
                                         </imageView>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gdq-jC-BuV" userLabel="user Name Label">
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gdq-jC-BuV" userLabel="user Handle Label">
                                             <rect key="frame" x="0.0" y="180" width="320" height="18"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                             <color key="textColor" red="0.40000000600000002" green="0.40000000600000002" blue="0.40000000600000002" alpha="1" colorSpace="calibratedRGB"/>
                                             <nil key="highlightedColor"/>
                                         </label>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="se6-3U-3Bk" userLabel="user handle Label">
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="se6-3U-3Bk" userLabel="user Name Label">
                                             <rect key="frame" x="0.0" y="153.5" width="320" height="21"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                             <nil key="textColor"/>
@@ -247,11 +257,11 @@
                         <viewLayoutGuide key="safeArea" id="rWW-OO-uXW"/>
                     </view>
                     <connections>
-                        <outlet property="backgroundImageView" destination="Wp4-kb-Vpq" id="Jc2-r6-MK5"/>
+                        <outlet property="backgroundImageView" destination="Wp4-kb-Vpq" id="NZw-mH-4op"/>
                         <outlet property="profileImageView" destination="EbR-RK-1gU" id="WFZ-fw-rlj"/>
                         <outlet property="profileTableView" destination="PcK-AB-csP" id="Vxq-8T-VUF"/>
-                        <outlet property="userHandleLabel" destination="se6-3U-3Bk" id="Z5W-vX-tIW"/>
-                        <outlet property="userNameLabel" destination="gdq-jC-BuV" id="NaI-ud-mwT"/>
+                        <outlet property="userHandleLabel" destination="gdq-jC-BuV" id="Ts6-G7-tvg"/>
+                        <outlet property="userNameLabel" destination="se6-3U-3Bk" id="r5R-v7-T2D"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="bTa-Fl-Ogv" userLabel="First Responder" sceneMemberID="firstResponder"/>

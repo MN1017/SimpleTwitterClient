@@ -12,7 +12,7 @@ import UIKit
 class CustomUIImageView: UIImageView {
 
     var cornerRadiusDependentOnScreenEnable: Bool = false
-    
+    var identifier:String = ""
     //
     //  Corner Radius
     //
@@ -25,6 +25,15 @@ class CustomUIImageView: UIImageView {
             }else{
                 self.layer.cornerRadius = cornerRadius 
             }
+        }
+    }
+    
+    //
+    //  Identifier
+    //
+    @IBInspectable var Identifier: String = "" {
+        didSet {
+            self.identifier = Identifier
         }
     }
     

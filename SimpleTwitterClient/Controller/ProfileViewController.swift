@@ -10,12 +10,13 @@ import UIKit
 import SwiftyJSON
 import TwitterKit
 import RKParallaxEffect
+import SKPhotoBrowser
 
 class ProfileViewController: UIViewController {
 
     /// IBOutlet
     ///
-    @IBOutlet weak var backgroundImageView: UIImageView!
+    @IBOutlet weak var backgroundImageView: CustomUIImageView!
     @IBOutlet weak var profileImageView: CustomUIImageView!
     @IBOutlet weak var userNameLabel: UILabel!
     @IBOutlet weak var userHandleLabel: UILabel!
@@ -92,13 +93,16 @@ extension ProfileViewController: TWTRTweetViewDelegate {
         parallaxEffect = RKParallaxEffect(tableView: profileTableView)
         
         setRegisterTableViewCells()
+        
+        addTapGesture(to : backgroundImageView)
+        addTapGesture(to : profileImageView)
     }
     
     /// use this method to customize parallax effect
     ///
     func customizeParallaxEffect() {
         parallaxEffect.isParallaxEffectEnabled = true
-        parallaxEffect.isFullScreenTapGestureRecognizerEnabled = true
+        parallaxEffect.isFullScreenTapGestureRecognizerEnabled = false
         parallaxEffect.isFullScreenPanGestureRecognizerEnabled = false
     }
     
@@ -109,6 +113,43 @@ extension ProfileViewController: TWTRTweetViewDelegate {
         userHandleLabel.text = user.userName
         profileImageView.kf.setImage(with: URL(string: user.profileImageURL),placeholder: #imageLiteral(resourceName: "user"))
         backgroundImageView.kf.setImage(with: URL(string: user.backgroundImageURL),placeholder: #imageLiteral(resourceName: "background"))
+    }
+    
+    /// use this method to tap gesture to UIImageView
+    ///
+    func addTapGesture(to imageView: CustomUIImageView){
+       let tapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(ProfileViewController.openImagesBrowser(_:)))
+        imageView.isUserInteractionEnabled = true
+        imageView.addGestureRecognizer(tapGestureRecognizer)
+    }
+    
+    /// use this method to open image in images browser
+    ///
+    @objc func openImagesBrowser(_ sender:UITapGestureRecognizer) {
+        
+        var photoURL: String!
+        let imageView = sender.view as! CustomUIImageView
+        if imageView.identifier == "BackgroundImage"{
+            photoURL = user.backgroundImageURL
+        }else{
+            photoURL = user.profileImageURL
+        }
+        
+        /// initiate images array
+        ///
+        var images = [SKPhoto]()
+        let photo = SKPhoto.photoWithImageURL(photoURL)
+        photo.shouldCachePhotoURLImage = true
+        images.append(photo)
+        
+        ///initiate images browser
+        ///
+        let browser = SKPhotoBrowser(originImage: imageView.image ?? UIImage(), photos: images, animatedFromView: imageView)
+        browser.initializePageIndex(0)
+        
+        ///display images browser
+        ///
+        present(browser, animated: true, completion: nil)
     }
     
     /// use this method to register twitter tweet cells
@@ -125,6 +166,7 @@ extension ProfileViewController: TWTRTweetViewDelegate {
         cell.tweetView.showActionButtons = true
         cell.selectionStyle = .none
         cell.backgroundColor = UIColor.lightGray
+        cell.tweetView.isUserInteractionEnabled = false
         cell.layer.borderColor = UIColor.lightGray.cgColor
         cell.layer.borderWidth = 4
         cell.layer.cornerRadius = 0
@@ -145,7 +187,7 @@ extension ProfileViewController: UITableViewDataSource, UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "TweetsCell")! as! TWTRTweetTableViewCell
-        cell.tweetView.delegate = self
+        //cell.tweetView.delegate = ProfileViewController.self()
         let tweet = tweets[indexPath.row]
         cell.configure(with: tweet as! TWTRTweet)
         setTweetCellDesign(cell: cell)
