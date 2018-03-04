@@ -16,16 +16,17 @@ class User {
     
     /// Variables
     ///
-    private var _id:Int64?
+    private var _id:Int?
     private var _name:String?
     private var _userName:String?
     private var _bio:String?
     private var _profileImageURL:String?
+    private var _backgroundImageURL:String?
     
     
     /// Getters
     ///
-    public var id:Int64 {
+    public var id:Int {
         if self._id == nil{
             self._id = 0
         }
@@ -60,6 +61,13 @@ class User {
         return self._profileImageURL!
     }
     
+    public var backgroundImageURL:String {
+        if self._backgroundImageURL == nil{
+            self._backgroundImageURL = ""
+        }
+        return self._backgroundImageURL!
+    }
+    
     /// Constructors
     ///
     init(name: String?, userName: String?, bio: String?, profileImageURL: String?){
@@ -70,11 +78,12 @@ class User {
     }
     
     init(fromJson json:JSON){
-        self._id = json["id"].int64Value
+        self._id = json["id"].intValue
         self._name = json["name"].stringValue
         self._userName = "@" + json["screen_name"].stringValue
         self._bio = json["description"].stringValue
         self._profileImageURL = json["profile_image_url_https"].stringValue
+        self._backgroundImageURL = json["profile_banner_url"].stringValue
     }
     
 }

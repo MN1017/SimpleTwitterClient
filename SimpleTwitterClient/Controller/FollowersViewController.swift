@@ -223,6 +223,10 @@ extension FollowersViewController: UICollectionViewDataSource, UICollectionViewD
             return cell
         }
     }
+    
+    public func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        performSegue(withIdentifier: "ProfileSegue", sender: self)
+    }
 }
 
 
@@ -253,5 +257,20 @@ extension FollowersViewController: NetworkingHelperDeleget {
         print(error)
         let json = getCachedFollowersData()
         updateFollowersData(withJson: json)
+    }
+}
+
+
+
+/// MARK: - Navigation
+///
+extension FollowersViewController {
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "ProfileSegue" {
+            let userProfileViewController:ProfileViewController = segue.destination as! ProfileViewController
+            if let selectedIndexPath = followersCollectionView.indexPathsForSelectedItems?[0] {
+            userProfileViewController.user = followers[selectedIndexPath.row]
+            }
+        }
     }
 }
